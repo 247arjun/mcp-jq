@@ -1,19 +1,18 @@
-# @247arjun/mcp-jq
+# MCP Server for JQ
 
 [![npm version](https://badge.fury.io/js/@247arjun%2Fmcp-jq.svg)](https://badge.fury.io/js/@247arjun%2Fmcp-jq)
-[![CI](https://github.com/247arjun/mcp-jq/workflows/CI/badge.svg)](https://github.com/247arjun/mcp-jq/actions)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Node.js Version](https://img.shields.io/badge/node-%3E%3D18.0.0-brightgreen.svg)](https://nodejs.org/)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.0+-blue.svg)](https://www.typescriptlang.org/)
+[![npm downloads](https://img.shields.io/npm/dm/@247arjun/mcp-jq.svg)](https://www.npmjs.com/package/@247arjun/mcp-jq)
 
-An MCP (Model Context Protocol) server that provides a wrapper around the `jq` command-line utility for querying JSON data.
+A Model Context Protocol (MCP) server that provides a wrapper around the `jq` command-line utility for querying and manipulating JSON data.
 
 ## Features
 
-- Query JSON files using jq syntax
-- Parse and format JSON data
-- Support for complex jq filters and operations
-- Stream processing for large JSON files
+- **JSON Querying**: Query JSON files and data using jq syntax
+- **Data Formatting**: Parse and format JSON data
+- **Complex Operations**: Support for complex jq filters and operations
+- **File Processing**: Stream processing for large JSON files
+- **Validation**: JSON validation and key extraction
+- **Security**: Safe subprocess execution with input validation
 
 ## Prerequisites
 
@@ -37,7 +36,7 @@ Download from https://jqlang.github.io/jq/download/
 
 ## Installation
 
-### Option 1: Install from npm (Recommended)
+### Method 1: NPM Installation (Recommended)
 
 ```bash
 # Install globally
@@ -47,79 +46,202 @@ npm install -g @247arjun/mcp-jq
 npm install @247arjun/mcp-jq
 ```
 
-### Option 2: Install from source
-
-1. **Clone the repository:**
-   ```bash
-   git clone https://github.com/247arjun/mcp-jq.git
-   cd mcp-jq
-   ```
-
-2. **Install dependencies:**
-   ```bash
-   npm install
-   ```
-
-3. **Build the project:**
-   ```bash
-   npm run build
-   ```
-
-4. **Run tests:**
-   ```bash
-   npm test
-   ```
-
-5. **Start the server:**
-   ```bash
-   npm start
-   ```
-
-### Option 3: Automated installation script
+### Method 2: From Source
 
 ```bash
-chmod +x install.sh && ./install.sh
+# Clone the repository
+git clone https://github.com/247arjun/mcp-jq.git
+cd mcp-jq
+
+# Install dependencies
+npm install
+
+# Build the project
+npm run build
+
+# Optional: Link globally
+npm link
 ```
 
-## MCP Client Configuration
+### Method 3: Direct from GitHub
 
-### Using the npm-installed version (Recommended)
+```bash
+# Install directly from GitHub
+npm install -g git+https://github.com/247arjun/mcp-jq.git
+```
 
-If you installed via npm globally:
+## Configuration
 
+### Claude Desktop Setup
+
+Add to your Claude Desktop configuration file:
+
+**Location:**
+- macOS: `~/Library/Application Support/Claude/claude_desktop_config.json`
+- Windows: `%APPDATA%/Claude/claude_desktop_config.json`
+
+**Configuration:**
 ```json
 {
   "mcpServers": {
-    "jq": {
+    "mcp-jq": {
       "command": "mcp-jq",
-      "description": "JSON querying with jq"
+      "args": []
     }
   }
 }
 ```
 
-### Using the local build
-
-If you built from source:
-
+**Alternative: Using npx (no global install needed)**
 ```json
 {
   "mcpServers": {
-    "jq": {
-      "command": "node",
-      "args": ["/absolute/path/to/mcp-jq/build/index.js"],
-      "description": "JSON querying with jq"
+    "mcp-jq": {
+      "command": "npx",
+      "args": ["@247arjun/mcp-jq"]
     }
   }
 }
 ```
 
-## Documentation
+**Local Development Setup**
+```json
+{
+  "mcpServers": {
+    "mcp-jq": {
+      "command": "node",
+      "args": ["/absolute/path/to/mcp-jq/build/index.js"]
+    }
+  }
+}
+```
 
-- **[EXAMPLES.md](EXAMPLES.md)** - Usage examples and advanced jq queries
-- **[INTEGRATION.md](INTEGRATION.md)** - Detailed integration guide for MCP clients
+After adding the configuration, restart Claude Desktop to load the MCP server.
 
-## Project Structure
+## Available Tools
+
+### 1. `jq_query`
+Query JSON data using jq syntax.
+
+**Parameters:**
+- `json_data` (string): The JSON data to query
+- `filter` (string): The jq filter expression
+- `raw_output` (boolean, optional): Return raw output instead of JSON (default: false)
+
+**Example:**
+```json
+{
+  "json_data": "{\"users\": [{\"name\": \"John\", \"age\": 30}]}",
+  "filter": ".users[0].name"
+}
+```
+
+### 2. `jq_query_file`
+Query a JSON file using jq syntax.
+
+**Parameters:**
+- `file_path` (string): Path to the JSON file
+- `filter` (string): The jq filter expression
+- `raw_output` (boolean, optional): Return raw output instead of JSON (default: false)
+
+**Example:**
+```json
+{
+  "file_path": "./data/users.json",
+  "filter": ".users | length"
+}
+```
+
+### 3. `jq_format`
+Format and prettify JSON data.
+
+**Parameters:**
+- `json_data` (string): The JSON data to format
+
+**Example:**
+```json
+{
+  "json_data": "{\"name\":\"John\",\"age\":30}"
+}
+```
+
+### 4. `jq_validate`
+Validate if a string is valid JSON.
+
+**Parameters:**
+- `json_data` (string): The JSON data to validate
+
+**Example:**
+```json
+{
+  "json_data": "{\"name\": \"John\", \"age\": 30}"
+}
+```
+
+### 5. `jq_keys`
+Get all keys from a JSON object or array of objects.
+
+**Parameters:**
+- `json_data` (string): The JSON data to extract keys from
+- `recursive` (boolean, optional): Get keys recursively (default: false)
+
+**Example:**
+```json
+{
+  "json_data": "{\"user\": {\"name\": \"John\", \"details\": {\"age\": 30}}}",
+  "recursive": true
+}
+```
+
+## Usage Examples
+
+### Query user names from JSON
+```json
+{
+  "tool": "jq_query",
+  "json_data": "{\"users\": [{\"name\": \"John\"}, {\"name\": \"Jane\"}]}",
+  "filter": ".users[].name"
+}
+```
+
+### Format JSON data
+```json
+{
+  "tool": "jq_format",
+  "json_data": "{\"name\":\"John\",\"age\":30,\"city\":\"NYC\"}"
+}
+```
+
+### Query a JSON file
+```json
+{
+  "tool": "jq_query_file",
+  "file_path": "./data/config.json",
+  "filter": ".database.host"
+}
+```
+
+## Development
+
+### Build and Run
+```bash
+# Development with auto-rebuild
+npm run dev
+
+# Production build
+npm run build
+
+# Start the server
+npm start
+```
+
+### Testing
+```bash
+# Run tests
+npm test
+```
+
+### Project Structure
 
 ```
 mcp-jq/
@@ -136,75 +258,54 @@ mcp-jq/
 └── README.md            # This file
 ```
 
-## Available Tools
+## Verification
 
-The server exposes the following tools:
+Test that the server is working:
 
-### `jq_query`
-Query JSON data using jq syntax.
-
-**Parameters:**
-- `json_data` (string): The JSON data to query
-- `filter` (string): The jq filter expression
-- `raw_output` (boolean, optional): Return raw output instead of JSON
-
-### `jq_query_file`
-Query a JSON file using jq syntax.
-
-**Parameters:**
-- `file_path` (string): Path to the JSON file
-- `filter` (string): The jq filter expression
-- `raw_output` (boolean, optional): Return raw output instead of JSON
-
-### `jq_format`
-Format and prettify JSON data.
-
-**Parameters:**
-- `json_data` (string): The JSON data to format
-
-### `jq_validate`
-Validate if a string is valid JSON.
-
-**Parameters:**
-- `json_data` (string): The JSON data to validate
-
-### `jq_keys`
-Get all keys from a JSON object or array of objects.
-
-**Parameters:**
-- `json_data` (string): The JSON data to extract keys from
-- `recursive` (boolean, optional): Get keys recursively (default: false)
-
-## Development
-
-Run in development mode with auto-rebuild:
 ```bash
-npm run dev
+# Test the built server
+node build/index.js
+
+# Should show: "JQ MCP Server running on stdio"
+# Press Ctrl+C to exit
 ```
 
-## Contributing
+## Troubleshooting
 
-We welcome contributions! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
+### Common Issues
 
-1. Fork the repository
-2. Create a feature branch: `git checkout -b feature/your-feature`
-3. Make your changes and add tests
-4. Run tests: `npm test`
-5. Commit your changes: `git commit -am 'Add some feature'`
-6. Push to the branch: `git push origin feature/your-feature`
-7. Create a Pull Request
+1. **"Command not found" error**
+   - Ensure mcp-jq is installed globally: `npm install -g @247arjun/mcp-jq`
+   - Or use npx: `"command": "npx", "args": ["@247arjun/mcp-jq"]`
 
-## Changelog
+2. **"Permission denied" error**
+   - Check file permissions: `chmod +x build/index.js`
+   - Rebuild the project: `npm run build`
 
-See [CHANGELOG.md](CHANGELOG.md) for version history and changes.
+3. **MCP server not appearing in Claude**
+   - Verify JSON syntax in configuration file
+   - Restart Claude Desktop completely
+   - Check that the command path is correct
 
-## License
+4. **"jq command not found"**
+   - Install jq on your system using the instructions above
+   - Verify installation: `jq --version`
 
-MIT - see [LICENSE](LICENSE) for details.
+### Debugging
 
-## Support
+Enable verbose logging by setting environment variable:
+```bash
+# For development
+DEBUG=1 node build/index.js
 
-- 📖 [Documentation](https://github.com/247arjun/mcp-jq#readme)
-- 🐛 [Bug Reports](https://github.com/247arjun/mcp-jq/issues/new?template=bug_report.yml)
-- 💡 [Feature Requests](https://github.com/247arjun/mcp-jq/issues/new?template=feature_request.yml)
-- 💬 [Discussions](https://github.com/247arjun/mcp-jq/discussions)
+# Test with sample input
+echo '{"jsonrpc": "2.0", "method": "initialize", "params": {}}' | node build/index.js
+```
+
+## Security Notes
+
+- Safe subprocess execution using spawn instead of shell
+- Input validation for all jq commands and file paths
+- No arbitrary shell command execution
+- Path validation and sanitization for file operations
+- Input validation with Zod schemas
