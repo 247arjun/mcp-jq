@@ -3,7 +3,7 @@
     "jq": {
       "command": "node",
       "args": [
-        "/Users/arjun/Code/mcp-jq/build/index.js"
+        "/path/to/mcp-jq/build/index.js"
       ],
       "description": "MCP server that wraps the jq command-line utility for JSON querying"
     }

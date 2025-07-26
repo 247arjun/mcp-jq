@@ -1,5 +1,10 @@
 # MCP jq Server
 
+[![CI](https://github.com/247arjun/mcp-jq/workflows/CI/badge.svg)](https://github.com/247arjun/mcp-jq/actions)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Node.js Version](https://img.shields.io/badge/node-%3E%3D18.0.0-brightgreen.svg)](https://nodejs.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.0+-blue.svg)](https://www.typescriptlang.org/)
+
 An MCP (Model Context Protocol) server that provides a wrapper around the `jq` command-line utility for querying JSON data.
 
 ## Features
@@ -140,6 +145,29 @@ Run in development mode with auto-rebuild:
 npm run dev
 ```
 
+## Contributing
+
+We welcome contributions! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
+
+1. Fork the repository
+2. Create a feature branch: `git checkout -b feature/your-feature`
+3. Make your changes and add tests
+4. Run tests: `npm test`
+5. Commit your changes: `git commit -am 'Add some feature'`
+6. Push to the branch: `git push origin feature/your-feature`
+7. Create a Pull Request
+
+## Changelog
+
+See [CHANGELOG.md](CHANGELOG.md) for version history and changes.
+
 ## License
 
-MIT
+MIT - see [LICENSE](LICENSE) for details.
+
+## Support
+
+- 📖 [Documentation](https://github.com/247arjun/mcp-jq#readme)
+- 🐛 [Bug Reports](https://github.com/247arjun/mcp-jq/issues/new?template=bug_report.yml)
+- 💡 [Feature Requests](https://github.com/247arjun/mcp-jq/issues/new?template=feature_request.yml)
+- 💬 [Discussions](https://github.com/247arjun/mcp-jq/discussions)

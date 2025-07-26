@@ -4,21 +4,33 @@
   "description": "An MCP Server that wraps the jq command-line utility for JSON querying",
   "main": "build/index.js",
   "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/247arjun/mcp-jq.git"
+  },
+  "homepage": "https://github.com/247arjun/mcp-jq#readme",
+  "bugs": {
+    "url": "https://github.com/247arjun/mcp-jq/issues"
+  },
   "scripts": {
     "build": "tsc",
     "dev": "tsc --watch",
     "start": "node build/index.js",
     "test": "node test.js",
-    "validate": "node test.js"
+    "validate": "node test.js",
+    "clean": "rm -rf build",
+    "prepare": "npm run build"
   },
   "keywords": [
     "mcp",
     "model-context-protocol",
     "jq",
     "json",
-    "query"
+    "query",
+    "claude",
+    "ai-tools"
   ],
-  "author": "Your Name",
+  "author": "247arjun",
   "license": "MIT",
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.0.0"

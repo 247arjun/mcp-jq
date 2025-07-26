@@ -1,0 +1,80 @@
+name: Feature Request
+description: Suggest a new feature for MCP jq Server
+title: "[Feature] "
+labels: ["enhancement", "triage"]
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for suggesting a new feature! Please provide details below.
+
+  - type: textarea
+    id: feature-description
+    attributes:
+      label: Feature Description
+      description: A clear and concise description of the feature you'd like to see
+      placeholder: Describe the feature you want to add
+    validations:
+      required: true
+
+  - type: textarea
+    id: use-case
+    attributes:
+      label: Use Case
+      description: Describe your use case and why this feature would be valuable
+      placeholder: Explain when and how you would use this feature
+    validations:
+      required: true
+
+  - type: textarea
+    id: example-usage
+    attributes:
+      label: Example Usage
+      description: Provide an example of how this feature would work
+      placeholder: |
+        Tool call example:
+        {
+          "tool": "new_tool_name",
+          "arguments": {
+            "param": "value"
+          }
+        }
+        
+        Expected output:
+        ...
+
+  - type: dropdown
+    id: complexity
+    attributes:
+      label: Estimated Complexity
+      description: How complex do you think this feature would be to implement?
+      options:
+        - Simple (minor addition to existing tool)
+        - Medium (new tool or significant enhancement)
+        - Complex (major architectural changes)
+        - Not sure
+
+  - type: checkboxes
+    id: implementation
+    attributes:
+      label: Implementation Considerations
+      description: Check all that apply
+      options:
+        - label: This requires new jq functionality
+        - label: This could be implemented with existing jq features
+        - label: This requires changes to the MCP protocol usage
+        - label: This affects backwards compatibility
+        - label: This requires new dependencies
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives Considered
+      description: Have you considered any alternative solutions or workarounds?
+
+  - type: textarea
+    id: additional
+    attributes:
+      label: Additional Context
+      description: Any other context about the feature request (related issues, references, etc.)

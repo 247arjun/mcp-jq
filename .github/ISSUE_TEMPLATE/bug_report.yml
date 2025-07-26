@@ -1,0 +1,80 @@
+name: Bug Report
+description: Report a bug in MCP jq Server
+title: "[Bug] "
+labels: ["bug", "triage"]
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for reporting a bug! Please fill out the information below to help us investigate.
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Bug Description
+      description: A clear and concise description of what the bug is.
+      placeholder: Describe what happened and what you expected to happen.
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Steps to Reproduce
+      description: Steps to reproduce the behavior
+      placeholder: |
+        1. Configure MCP client with...
+        2. Call tool with parameters...
+        3. See error...
+    validations:
+      required: true
+
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment Information
+      description: Please provide your environment details
+      placeholder: |
+        - OS: [e.g., macOS 14.0, Ubuntu 22.04, Windows 11]
+        - Node.js version: [e.g., 20.10.0]
+        - jq version: [e.g., jq-1.7]
+        - mcp-jq version: [e.g., 1.0.0]
+        - MCP Client: [e.g., Claude Desktop, VS Code Extension]
+    validations:
+      required: true
+
+  - type: textarea
+    id: json-data
+    attributes:
+      label: Sample JSON Data (if applicable)
+      description: If the bug involves specific JSON data, please provide a minimal example
+      render: json
+
+  - type: textarea
+    id: jq-filter
+    attributes:
+      label: jq Filter (if applicable)
+      description: The jq filter expression that caused the issue
+      render: bash
+
+  - type: textarea
+    id: error-output
+    attributes:
+      label: Error Output
+      description: Any error messages or logs
+      render: bash
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected Behavior
+      description: What you expected to happen
+    validations:
+      required: true
+
+  - type: textarea
+    id: additional
+    attributes:
+      label: Additional Context
+      description: Any other context about the problem (screenshots, related issues, etc.)
