@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "name": "Alice Johnson",
+    "age": 30,
+    "email": "alice@example.com",
+    "city": "New York",
+    "skills": ["JavaScript", "Python", "React"],
+    "active": true
+  },
+  {
+    "id": 2,
+    "name": "Bob Smith",
+    "age": 25,
+    "email": "bob@example.com",
+    "city": "San Francisco",
+    "skills": ["Java", "Spring", "Docker"],
+    "active": false
+  },
+  {
+    "id": 3,
+    "name": "Carol Davis",
+    "age": 35,
+    "email": "carol@example.com",
+    "city": "Seattle",
+    "skills": ["Go", "Kubernetes", "AWS"],
+    "active": true
+  },
+  {
+    "id": 4,
+    "name": "David Wilson",
+    "age": 28,
+    "email": "david@example.com",
+    "city": "Austin",
+    "skills": ["Rust", "WebAssembly", "GraphQL"],
+    "active": true
+  }
+]
