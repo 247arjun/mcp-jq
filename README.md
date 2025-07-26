@@ -1,5 +1,6 @@
-# MCP jq Server
+# @247arjun/mcp-jq
 
+[![npm version](https://badge.fury.io/js/@247arjun%2Fmcp-jq.svg)](https://badge.fury.io/js/@247arjun%2Fmcp-jq)
 [![CI](https://github.com/247arjun/mcp-jq/workflows/CI/badge.svg)](https://github.com/247arjun/mcp-jq/actions)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Node.js Version](https://img.shields.io/badge/node-%3E%3D18.0.0-brightgreen.svg)](https://nodejs.org/)
@@ -34,36 +35,72 @@ sudo apt-get install jq
 **Windows:**
 Download from https://jqlang.github.io/jq/download/
 
-## Quick Start
+## Installation
 
-1. **Install dependencies:**
+### Option 1: Install from npm (Recommended)
+
+```bash
+# Install globally
+npm install -g @247arjun/mcp-jq
+
+# Or install locally in your project
+npm install @247arjun/mcp-jq
+```
+
+### Option 2: Install from source
+
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/247arjun/mcp-jq.git
+   cd mcp-jq
+   ```
+
+2. **Install dependencies:**
    ```bash
    npm install
    ```
 
-2. **Build the project:**
+3. **Build the project:**
    ```bash
    npm run build
    ```
 
-3. **Run tests:**
+4. **Run tests:**
    ```bash
    npm test
    ```
 
-4. **Start the server:**
+5. **Start the server:**
    ```bash
    npm start
    ```
 
-Alternatively, use the installation script:
+### Option 3: Automated installation script
+
 ```bash
 chmod +x install.sh && ./install.sh
 ```
 
 ## MCP Client Configuration
 
-Add this to your MCP client configuration (e.g., Claude Desktop):
+### Using the npm-installed version (Recommended)
+
+If you installed via npm globally:
+
+```json
+{
+  "mcpServers": {
+    "jq": {
+      "command": "mcp-jq",
+      "description": "JSON querying with jq"
+    }
+  }
+}
+```
+
+### Using the local build
+
+If you built from source:
 
 ```json
 {

@@ -1,8 +1,8 @@
 #!/bin/bash
 
-# MCP jq Server Installation Script
+# @247arjun/mcp-jq Installation Script
 
-echo "🚀 Installing MCP jq Server..."
+echo "🚀 Installing @247arjun/mcp-jq..."
 
 # Check if Node.js is installed
 if ! command -v node &> /dev/null; then

@@ -1,5 +1,5 @@
 name: Bug Report
-description: Report a bug in MCP jq Server
+description: Report a bug in @247arjun/mcp-jq
 title: "[Bug] "
 labels: ["bug", "triage"]
 

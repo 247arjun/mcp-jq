@@ -1,12 +1,23 @@
 {
-  "name": "mcp-jq",
+  "name": "@247arjun/mcp-jq",
   "version": "1.0.0",
   "description": "An MCP Server that wraps the jq command-line utility for JSON querying",
   "main": "build/index.js",
+  "types": "build/index.d.ts",
   "type": "module",
+  "bin": {
+    "mcp-jq": "build/index.js"
+  },
+  "files": [
+    "build/",
+    "examples/",
+    "README.md",
+    "LICENSE",
+    "CHANGELOG.md"
+  ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/247arjun/mcp-jq.git"
+    "url": "git+https://github.com/247arjun/mcp-jq.git"
   },
   "homepage": "https://github.com/247arjun/mcp-jq#readme",
   "bugs": {

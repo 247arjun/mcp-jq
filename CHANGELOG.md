@@ -8,7 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [1.0.0] - 2025-07-26
 
 ### Added
-- Initial release of MCP jq Server
+- Initial release of @247arjun/mcp-jq Server
 - Complete MCP protocol implementation using `@modelcontextprotocol/sdk`
 - Five core tools for JSON querying and manipulation:
   - `jq_query` - Query JSON data directly using jq syntax

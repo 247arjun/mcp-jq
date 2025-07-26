@@ -1,6 +1,6 @@
-# Contributing to MCP jq Server
+# Contributing to @247arjun/mcp-jq
 
-Thank you for your interest in contributing to MCP jq Server! This document provides guidelines for contributing to the project.
+Thank you for your interest in contributing to @247arjun/mcp-jq! This document provides guidelines for contributing to the project.
 
 ## Getting Started
 
@@ -164,4 +164,4 @@ Help improve documentation by:
 - Help others learn and grow
 - Follow GitHub's community guidelines
 
-Thank you for contributing to MCP jq Server! 🎉
+Thank you for contributing to @247arjun/mcp-jq! 🎉
